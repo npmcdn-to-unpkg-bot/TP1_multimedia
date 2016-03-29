@@ -1,0 +1,47 @@
+body {
+    background: black;
+    color:white;
+    text-align: center;
+    horiz-align: center;
+}
+h1{
+    color: deeppink;
+}
+h2{
+    color: greenyellow;
+    text-align: left;
+}
+p{
+    color: lightskyblue;
+    text-align: justify;
+}
+
+
+a:link {
+    color: #ff5642;
+}
+
+a:visited {
+    color: #45ff94;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+a:active {
+    color: #50a1ff;
+}
+#pen{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.codepen{
+    background: orange;
+    padding: 10px;
+    margin: 3px;
+    border-radius: 15px;
+    width: 400px;
+}

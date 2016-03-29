@@ -1,0 +1,55 @@
+p{
+    color: lightskyblue;
+}
+body {
+    background: black;
+    color:white;
+    text-align: center;
+}
+h1{
+    color: deeppink;
+    display: block;
+}
+h2{
+    color: greenyellow;
+    display: block;
+}
+
+li{
+    text-align:left;
+}
+
+a:link {
+    color: #ff5642;
+}
+
+a:visited {
+    color: #45ff94;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+a:active {
+    color: #50a1ff;
+}
+main{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    counter-reset: section;
+    text-align: center;
+}
+article{
+    counter-increment: section;
+    content: counter(section);
+    width: 300px;
+    background-color: #45ff94;
+    padding: 10px;
+    margin: 3px;
+    border-radius: 15px;
+    text-align: center;
+}
