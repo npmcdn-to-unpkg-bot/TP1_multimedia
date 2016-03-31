@@ -56,6 +56,7 @@ a:active {
     padding: 30px;
     border-radius: 0 0 0 15px;
     opacity: .8;
+    z-index: 1;
 }
 
 #accueil a {
@@ -66,24 +67,61 @@ a:active {
     opacity: 1;
 }
 #fondBlancYoutube{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
     background-color: white;
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 5px;
+    padding: 15px;
     margin: 5%;
-    max-width: 100px;
+    max-width: 80px;
     max-height: 20px;
     color: black;
     font-family: 'Lucida Console';
+    box-shadow: 5px 5px 5px #888888;
+}
+#fondBlancYoutube span{
+    letter-spacing: -1px;
+    font-size: larger;
 }
 #fondRouge{
-    position: relative;
-    top: 0em;
-    right: 0em;
     background-color: red;
-    border-radius: 10px;
-    padding: 10px;
-    max-width: 30px;
+    border-radius: 5px;
+    padding: 2px;
+    max-width: 60%;
     color: white;
     text-align: left;
     text-indent: 0%;
+}
+@media (min-width: 800px){
+section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}}
+.titreVideo{
+    background: linear-gradient( #ff399a, #8f28ff, #fff466);
+    border-radius: 40px 40px 15px 15px;
+    padding: 30px;
+    font-size: larger;
+    color: black;
+    margin: 15px;
+}
+.cadre{
+    border-style: solid;
+    border-width: thick;
+    border-color: #a65fff;
+    padding: 10px;
+    border-radius: 40px 40px 15px 15px;
+    -webkit-animation:mymove 10s infinite alternate;
+    text-align: center;
+    margin:30px auto;
+}
+@-webkit-keyframes mymove {
+    0% {border-color: #a65fff;}
+    25% {border-color: #50a1ff;}
+    50%{border-color: #ff78f4;}
+    75% {border-color: #ffc194;}
+    100% {border-color: #a65fff;}
 }
