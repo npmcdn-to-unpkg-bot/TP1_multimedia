@@ -2,29 +2,31 @@ body {
     background: black;
     color: white;
     text-align: center;
-    horiz-align: center;
+    margin: 0 auto;
 }
 
 h1 {
-    color: deeppink;
+    color: white;
+    background-color: black;
     font-family: 'Gigi', cursive;
+    mix-blend-mode: multiply;
 }
 
 h2 {
     color: greenyellow;
-    text-align: left;
     font-family: 'Gigi', cursive;
-    font-size: 200%;
 }
 
 p {
     color: lightskyblue;
     text-align: justify;
+    text-indent: 40px;
 }
 
-a{
+a {
     -webkit-transition: font-size 2s;
 }
+
 a:link {
     color: #ff5642;
 }
@@ -35,6 +37,7 @@ a:visited {
 
 a:hover {
     color: hotpink;
+    text-shadow: 6em 0.0em 0.05em #43ff65;
     font-size: 200%;
 }
 
@@ -58,21 +61,29 @@ a:active {
 #accueil a {
     font-size: 150%;
 }
-#accueil:hover{
+
+#accueil:hover {
     opacity: 1;
 }
-
-#pen {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background: orange;
-    border-radius: 15px;
-    padding: 20px;
-}
-
-.codepen {
+#fondBlancYoutube{
+    background-color: white;
+    border-radius: 10px;
     padding: 10px;
-    margin: 3px;
-
+    margin: 5%;
+    max-width: 100px;
+    max-height: 20px;
+    color: black;
+    font-family: 'Lucida Console';
+}
+#fondRouge{
+    position: relative;
+    top: 0em;
+    right: 0em;
+    background-color: red;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 30px;
+    color: white;
+    text-align: left;
+    text-indent: 0%;
 }

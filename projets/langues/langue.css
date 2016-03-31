@@ -6,11 +6,13 @@ p {
 body {
     background: black;
     color: white;
+    text-align: center;
 }
 
 h1 {
     color: deeppink;
-    font-family: 'Harlow Solid Italic', cursive;
+    font-family: 'Gigi', cursive;
+    font-size: 200%;
     text-align: left;
     text-indent: 5%;
 }
@@ -18,7 +20,8 @@ h1 {
 h2 {
     color: greenyellow;
     display: block;
-    font-family: 'Harlow Solid Italic', cursive;
+    font-family: 'Gigi', cursive;
+
 }
 
 li {
@@ -26,6 +29,9 @@ li {
     text-indent: 10px;
 }
 
+a{
+    -webkit-transition: font-size 2s;
+}
 a:link {
     color: #9dceff;
 }
@@ -36,6 +42,7 @@ a:visited {
 
 a:hover {
     color: hotpink;
+    font-size: 200%;
 }
 
 a:active {
@@ -52,10 +59,14 @@ a:active {
     right: 0em;
     padding: 30px;
     border-radius: 0 0 0 15px;
+    opacity: .8;
 }
 
 #accueil a {
     font-size: 150%;
+}
+#accueil:hover{
+    opacity: 1;
 }
 
 #apropos {
@@ -89,7 +100,11 @@ a:active {
     max-width: 90%;
     text-align: center;
     margin: 30px auto;
-
+    -webkit-animation:mymove 5s infinite;
+}
+@-webkit-keyframes mymove {
+    from {border-color: #a65fff;}
+    to {border-color: #50a1ff;}
 }
 
 main {
@@ -138,7 +153,7 @@ article li:last-child {
 }
 
 article:nth-child(1) {
-    background-color: #ff1a38;
+    background: linear-gradient(#740403,#d60403,#ff1a38);
     color: gold;
     order: 0;
 
@@ -157,7 +172,7 @@ article:nth-child(1) li:nth-child(odd) {
 }
 
 article:nth-child(2) {
-    background-color: #19961a;
+    background: linear-gradient(#185818, #1b821b, #19b31a);
     color: gold;
     order: 1;
 }
@@ -175,7 +190,7 @@ article:nth-child(2) li:nth-child(odd) {
 }
 
 article:nth-child(3) {
-    background-color: #ff1a38;
+    background: linear-gradient(#740403,#d60403,#ff1a38);
     color: gold;
     order: 3;
 }
@@ -193,7 +208,7 @@ article:nth-child(3) li:nth-child(odd) {
 }
 
 article:nth-child(4) {
-    background-color: #19961a;
+    background: linear-gradient(#185818, #1b821b, #19b31a);
     color: gold;
     order: 4;
 }
@@ -225,7 +240,8 @@ article:nth-child(5) li {
 
 article:nth-child(6) {
     order: 5;
-    background-color: #19961a;
+    background: linear-gradient(#185818, #1b821b, #19b31a);
+
 }
 
 article:nth-child(6) li {
@@ -239,7 +255,7 @@ article:nth-child(6) span {
 }
 
 article:nth-child(7) {
-    background-color: #ff1a38;
+    background: linear-gradient(#740403,#d60403,#ff1a38);
     color: gold;
     order: 6;
 }
@@ -290,6 +306,11 @@ article:nth-child(8) span:nth-child(3) {
     right: -90px;
 }
 
-footer {
+footer p{
     text-align: center;
+
+}
+footer h1{
+    text-align: center;
+
 }
