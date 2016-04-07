@@ -19,8 +19,14 @@ var monTitre = document.querySelector('h1');
 
 function définirNomUtilisateur() {
     var monNom = prompt('Veuillez saisir votre nom.');
-    localStorage.setItem('nom', monNom);
-    monTitre.textContent = 'Mozilla est cool, ' + monNom;
+    var nomEnregistré = localStorage.getItem('nom');
+    if(monNom!=null){
+        localStorage.setItem('nom', monNom.trim());
+        monTitre.textContent = 'Mozilla est cool, ' + monNom.trim();
+    } else if(nomEnregistré==null){
+        localStorage.setItem('nom', 'Inconnu');
+        monTitre.textContent = 'Mozilla est cool, '+ nomEnregistré;
+    }
 }
 if(!localStorage.getItem('nom')) {
     définirNomUtilisateur();
