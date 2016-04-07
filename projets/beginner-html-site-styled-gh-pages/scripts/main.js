@@ -10,7 +10,7 @@ monImage.onclick = function() {
     var maSrc = monImage.getAttribute('src');
     if(maSrc === 'images/firefox-icon.png') {
         monImage.setAttribute ('src','images/fabienneShika.jpg');
-    } else {
+    } else if(maSrc === 'images/fabienneShika.jpg'){
         monImage.setAttribute ('src','images/firefox-icon.png');
     }
 }
