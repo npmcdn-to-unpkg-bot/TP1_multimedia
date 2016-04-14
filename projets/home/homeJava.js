@@ -3,20 +3,36 @@
  */
 (function () {
     "use strict";
-    window.onload = foo;
-    window.onload = lienPage();
+    initAudio();
+    initMenu();
 
-    function foo() {
+    function initAudio() {
+        var isSourdine = localStorage.getItem('sourdine');
         var bCheck = document.getElementById("checkBsoudine");
         var audio = document.getElementById("motBienvenu");
-        if (bcheck.checked) {
-            $('#motBienvenu').pause();
-        } else if (!bCheck.checked) {
-            $('#motBienvenu').play();
-        }
-    };
+        var label = document.getElementById("labelSourdine");
 
-    function lienPage() {
+        if (isSourdine == true) {
+            checkbox.checked = true;
+            audio.pause();
+        } else if (!isSourdine) {
+            audio.play();
+        }
+
+        if (bCheck.checked) {
+            label.title = "Désactiver la sourdine"
+        } else {
+            label.title = "Activer la sourdine"
+        }
+        document.querySelector("#checkBsoudine").onclick = function () {
+            bCheck.checked ? audio.pause() : audio.play();
+            bCheck.checked ? label.title = "Désactiver la sourdine" : label.title = "Activer la sourdine";
+            localStorage.setItem('sourdine', bCheck.checked);
+        };
+
+    }
+
+    function initMenu() {
         var projets = [
             {
                 nom: "Langues",
@@ -35,10 +51,11 @@
                 dir: "youtube"
             }
         ];
+        var ulMenu = document.querySelector("#ulMenu");
         for (var i = 0; i < projets.length; i++) {
-            document.getElementById('ulMenu').innerHTML = '<li><a  href="../'+projets[dir]+'/index.html">'+projets[nom]+'</a></li>';
+            var li = document.createElement("li");
+            li.innerHTML = '<a  href="../' + projets[i].dir + '/index.html">' + projets[i].nom + '</a>';
+            ulMenu.appendChild(li);
         }
-
-
     };
 })();
