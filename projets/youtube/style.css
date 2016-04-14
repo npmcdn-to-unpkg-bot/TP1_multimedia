@@ -6,10 +6,11 @@ body {
 }
 
 h1 {
-    color: white;
-    background-color: black;
+    color: deeppink;
     font-family: 'Gigi', cursive;
-    mix-blend-mode: multiply;
+    font-size: 200%;
+    text-align: left;
+    text-indent: 5%;
 }
 
 h2 {

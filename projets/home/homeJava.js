@@ -49,6 +49,10 @@
             {
                 nom: "Youtube",
                 dir: "youtube"
+            },
+            {
+                nom: "Todo",
+                dir: "todo"
             }
         ];
         var ulMenu = document.querySelector("#ulMenu");
