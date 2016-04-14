@@ -13,7 +13,7 @@
         var label = document.getElementById("labelSourdine");
 
         if (isSourdine == true) {
-            checkbox.checked = true;
+            bCheck.checked = true;
             audio.pause();
         } else if (!isSourdine) {
             audio.play();
