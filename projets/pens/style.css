@@ -53,6 +53,8 @@ a:active {
     padding: 30px;
     border-radius: 0 0 0 15px;
     opacity: .8;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
 }
 
 #accueil a {
@@ -65,6 +67,7 @@ a:active {
 #pen {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
     background: orange;
     border-radius: 15px;
@@ -74,5 +77,19 @@ a:active {
 .viewPen {
     padding: 10px;
     margin: 3px;
-    width: calc(50% - 30px);
+    max-width: calc(50% - 20px);
+    height: auto;
+    min-width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-flow: column;
+    flex-grow: 1;
+}
+.viewPen>div{
+
+ }
+@media screen and (min-width: 800px) {
+    .viewport {display: flex;
+    }
 }

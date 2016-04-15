@@ -3,8 +3,8 @@
  */
 document.write(
 '<link rel="stylesheet" href="style.css">',
-    '<link rel="shortcut icon" href="../../common/images/faviconit/favicon.ico">',
-    '<link rel="icon" sizes="16x16 32x32 64x64" href="../../common/images/faviconit/favicon.ico">',
+    '<link rel="shortcut icon" href="..//images/faviconit/favicon.ico">',
+    '<link rel="icon" sizes="16x16 32x32 64x64" href="..//images/faviconit/favicon.ico">',
     '<link rel="icon" type="image/png" sizes="196x196" href="../../common/images/faviconit/favicon-192.png">',
     '<link rel="icon" type="image/png" sizes="160x160" href="../../common/images/faviconit/favicon-160.png">',
     '<link rel="icon" type="image/png" sizes="96x96" href="../../common/images/faviconit/favicon-96.png">',
@@ -24,3 +24,4 @@ document.write(
     '<meta name="msapplication-TileImage" content="../../common/images/faviconit/favicon-144.png">',
     '<meta name="msapplication-config" content="../../common/images/faviconit/browserconfig.xml">'
 );
+

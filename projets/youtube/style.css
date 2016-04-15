@@ -25,7 +25,7 @@ p {
 }
 
 a {
-    -webkit-transition: font-size 2s;
+    -webkit-transition: color 1s;
 }
 
 a:link {
@@ -38,8 +38,6 @@ a:visited {
 
 a:hover {
     color: hotpink;
-    text-shadow: 6em 0.0em 0.05em #43ff65;
-    font-size: 200%;
 }
 
 a:active {
@@ -58,6 +56,8 @@ a:active {
     border-radius: 0 0 0 15px;
     opacity: .8;
     z-index: 1;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
 }
 
 #accueil a {

@@ -67,6 +67,8 @@ button:hover{
   border-radius: 0 0 0 15px;
   opacity: .8;
   z-index: 1;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
 }
 
 #accueil a {

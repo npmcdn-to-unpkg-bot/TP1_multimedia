@@ -35,6 +35,8 @@ li:hover{
     border-style: solid;
     border-width: medium;
     border-color: #a65fff;
+    -webkit-transition: background-color 1s;
+    transition: background-color 1s;
     -webkit-animation:mymove 10s infinite alternate;
     border-top: none;
     border-right: none;
@@ -78,11 +80,12 @@ a:active {
 img{
     border-style: solid;
     border-width: thick;
-    border-color: white;
+    border-color: #ffc194;
     border-radius: 15px;
     max-width: 80%;
     height: auto;
-    -webkit-filter: contrast(180%);filter: contrast(180%);
+    -webkit-filter: grayscale(70%);
+    filter: grayscale(50%);
     transform: rotate(7deg);
 }
 #degrader{
