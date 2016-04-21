@@ -10,22 +10,22 @@
         checkAllbBtn = document.querySelector("#checkAll"),
         clearAllDoneBtn = document.querySelector("#clearAllDone");
     getData();
-    should_mark_all_todo_btn_be_disabled();
-    should_clear_all_todo_btn_be_disabled();
+    clearAllDone();
+    clearAlldone();
     dataUpdated();
 
 
-        inputText.onkeypress = function(e){
+    inputText.onkeypress = function (e) {
         if (!e) e = window.event;
         var keyCode = e.keyCode || e.which;
-        if (keyCode == '13'){
+        if (keyCode == '13') {
             inputText.value.trim() != "" ? ajouterTodo(inputText.value.trim()) : "";
             inputText.value = "";
             return false;
         }
     };
 
-    function ajouterTodo( todoTexte ){
+    function ajouterTodo(todoTexte) {
         todoTexte = todoTexte || 'Chose à faire';
         var todo = document.createElement("article");
         todo.innerHTML = '<input type="checkbox" >' +
@@ -53,7 +53,7 @@
                     inputText.focus();
                 return false;
             }
-    };
+        };
         div.onblur = function () {
             dataUpdated();
         };
@@ -64,11 +64,11 @@
             if (!e) e = window.event;
             var keyCode = e.keyCode || e.which;
             if (keyCode == '32') {
-                checkbox_onkeypress(this,todo);
+                checkbox_onkeypress(this, todo);
                 return false;
             }
             if (keyCode == '13') {
-                checkbox_onkeypress(this,todo);
+                checkbox_onkeypress(this, todo);
                 return false;
             }
 
@@ -79,16 +79,17 @@
         img.onkeypress = deleteTodoOnEnter;
         todolist.insertBefore(todo, todolist.firstChild);
 
-        should_mark_all_todo_btn_be_disabled();
+        clearAllDone();
         dataUpdated();
         return todo;
     }
 
-    function checkbox_onkeypress(checkbox,todo) {
+    function checkbox_onkeypress(checkbox, todo) {
         checkbox.checked ? checkbox.checked = false : checkbox.checked = true;
         checkbox_onchange(checkbox, todo);
 
     }
+
     function deleteTodo(node) {
         var sibling = node.parentNode.nextElementSibling;
         if (sibling)
@@ -99,19 +100,19 @@
             if (article) {
                 article.querySelector("img").focus()
             } else {
-                if(node.parentNode.parentNode.childNodes.length >1){
-                    node.parentNode.parentNode.childNodes[node.parentNode.parentNode.childNodes.length-2].querySelector("img").focus();
-                }else{
+                if (node.parentNode.parentNode.childNodes.length > 1) {
+                    node.parentNode.parentNode.childNodes[node.parentNode.parentNode.childNodes.length - 2].querySelector("img").focus();
+                } else {
                     inputText.focus();
                 }
             }
-        } else{
-            if(donelist.childNodes.length >1){
-                donelist.childNodes[donelist.childNodes.length-2].querySelector("img").focus();
+        } else {
+            if (donelist.childNodes.length > 1) {
+                donelist.childNodes[donelist.childNodes.length - 2].querySelector("img").focus();
             }
-            else if(todolist.childNodes.length >1){
+            else if (todolist.childNodes.length > 1) {
                 todolist.lastChild.querySelector("img").focus();
-            }else{
+            } else {
                 inputText.focus();
             }
 
@@ -120,9 +121,21 @@
         node.parentNode.outerHTML = "";
 
 
-        should_mark_all_todo_btn_be_disabled();
-        should_clear_all_todo_btn_be_disabled();
+        clearAllDone();
+        clearAlldone();
         dataUpdated();
+    }
+
+
+    function checkbox_onchange(checkbox, todo) {
+        if (checkbox.checked) {
+            donelist.insertBefore(todo, donelist.firstChild);
+        } else {
+            todolist.appendChild(todo);
+        }
+        dataUpdated();
+        clearAllDone();
+        clearAlldone();
     }
 
     function deleteTodoOnEnter(e) {
@@ -134,18 +147,15 @@
         }
     }
 
-    function checkbox_onchange(checkbox, todo) {
-        if (checkbox.checked) {
-            donelist.insertBefore(todo, donelist.firstChild);
+    function clearAlldone() {
+        if (donelist.childNodes.length == 0) {
+            clearAllDoneBtn.disabled = true;
         } else {
-            todolist.appendChild(todo);
+            clearAllDoneBtn.disabled = false;
         }
-        dataUpdated();
-        should_mark_all_todo_btn_be_disabled();
-        should_clear_all_todo_btn_be_disabled();
     }
 
-    function should_mark_all_todo_btn_be_disabled() {
+    function clearAllDone() {
         if (todolist.childNodes.length == 0) {
             checkAllbBtn.disabled = true;
         } else {
@@ -153,13 +163,6 @@
         }
     }
 
-    function should_clear_all_todo_btn_be_disabled() {
-        if (donelist.childNodes.length == 0) {
-            clearAllDoneBtn.disabled = true;
-        } else {
-            clearAllDoneBtn.disabled = false;
-        }
-    }
 
     checkAllbBtn.addEventListener("click", function () {
         var checkboxes = todolist.querySelectorAll("input");
@@ -168,12 +171,28 @@
             checkbox_onchange(checkboxes[i], checkboxes[i].parentNode);
         }
     });
+
     clearAllDoneBtn.onclick = function () {
         var todos = donelist.querySelectorAll("input");
         for (var i = 0; i < todos.length; i++) {
             deleteTodo(todos[i]);
         }
     };
+
+    function getData() {
+        var json = JSON.parse(localStorage.getItem("todos")), i, todo;
+        if (json) {
+            for (i = json.todos.length - 1; i >= 0; i--) {
+                todo = ajouterTodo(json.todos[i].text);
+            }
+            for (i = 0; i < json.doneTodos.length; i++) {
+                todo = ajouterTodo(json.doneTodos[i].text);
+                todo.querySelector("input").checked = true;
+                donelist.appendChild(todo);
+            }
+        }
+    }
+
     function dataUpdated() {
         var json = {
                 todos: [],
@@ -193,27 +212,8 @@
             };
             json.doneTodos.push(todo);
         }
-
         localStorage.setItem("todos", JSON.stringify(json));
     }
 
-    function getData() {
-        var json = JSON.parse(localStorage.getItem("todos")), i, todo;
-        if(json){
-            for (i = json.todos.length - 1; i >= 0; i--) {
-                todo = ajouterTodo(json.todos[i].text);
 
-            }
-            for (i = 0; i < json.doneTodos.length; i++) {
-                todo = ajouterTodo(json.doneTodos[i].text);
-                todo.querySelector("input").checked = true;
-                donelist.appendChild(todo);
-
-
-            }
-        }
-
-    }
-
-
-}) ();
+})();
