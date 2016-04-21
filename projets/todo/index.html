@@ -10,20 +10,22 @@
 <div id="accueil"><a href="../home/index.html">Retour à l'accueil</a></div>
 <h1>Todo</h1>
 <div id="cadre">
-  <header>
-      <span class="hide-on-small-screen">Todo</span>
-      <input type="TEXT" id="input" placeholder="Entrez ici..." autofocus>
-  </header>
-    <div id="todolist">
-        <article><input id="checkBsoudine" type="checkbox" name="checkbox" value="value" >
-            <div class="text" tabindex="0" contenteditable>
-
-        </div><img src="../../common/images/close.png" alt="delete" tabindex="0"></article>
-        <article></article>
+    <header>
+        <span class="hide-on-small-screen">Todo</span>
+        <input type="TEXT" id="input" placeholder="Entrez ici..." autofocus>
+    </header>
+    <div id="alltasks">
+        <div id="todolist"></div>
+        <div id="donelist"></div>
     </div>
 </div>
 
-
+<footer>
+    <button id="checkAll"><img  src="../../common/images/checkbox.png" alt="delete" tabindex="0">
+        <label>Marquer toutes les tâches comme complétées</label></button>
+    <button id="clearAllDone"><img  src="../../common/images/close.png" alt="delete" tabindex="0">
+    <label>Effacer les tâches complétées</label></button>
+</footer>
 <script src="todo.js"></script>
 </body>
 </html>
