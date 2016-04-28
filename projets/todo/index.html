@@ -14,18 +14,26 @@
         <span class="hide-on-small-screen">Todo</span>
         <input type="TEXT" id="input" placeholder="Entrez ici..." autofocus>
     </header>
-    <div id="alltasks">
+    <div id="alltasks"></div>
         <div id="todolist"></div>
         <div id="donelist"></div>
     </div>
 </div>
+<template>
+    <article>
+        <input type="checkbox">
+        <div tabindex="0" contenteditable="true" ><!-- Insérer le todo --></div>
+        <img src="../../common/images/close.png" alt="delete" tabindex="0">
+    </article>
+</template>
 
 <footer>
-    <button id="checkAll"><img  src="../../common/images/checkbox.png" alt="delete" tabindex="0">
+    <button id="checkAll"><img src="../../common/images/checkbox.png" alt="delete" tabindex="0">
         <label>Marquer toutes les tâches comme complétées</label></button>
-    <button id="clearAllDone"><img  src="../../common/images/close.png" alt="delete" tabindex="0">
-    <label>Effacer les tâches complétées</label></button>
+    <button id="clearAllDone"><img src="../../common/images/close.png" alt="delete" tabindex="0">
+        <label>Effacer les tâches complétées</label></button>
 </footer>
 <script src="todo.js"></script>
+<script src="handlebars-v4.0.5.js"></script>
 </body>
 </html>

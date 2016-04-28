@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Accueil</title>
     <link rel="stylesheet" media="screen" href="style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="../../handlebars-v4.0.5.js"></script>
     <script src="../../common/js/favicon.js"></script>
-
-
 </head>
 <body>
 
@@ -23,11 +24,22 @@
     <h2>Bienvenue sur mon siteweb!</h2>
     <br/>
     <p>Je vous invite à le visiter. Les rubriques disponibles, en ordre alphabétique, sont les suivantes: </p>
-    <ul id="ulMenu"></ul>
+
+    <ul id="ulMenu">
+    </ul>
 </div>
 <audio id="motBienvenu" controls autoplay>
     <source src="../media/siteInternet.m4a" type="audio/mp4">
 </audio>
+<script id="menuUL" type="text/x-handlebars-template" >
+    {{#each projets}}
+    <li> <a  href="../{{dir}}/index.html">{{nom}}</a>
+    {{#if description}}
+    <span>{{description}}</span>
+    {{/if}}
+    </li>
+    {{/each}}
+</script>
 <script src="homeJava.js"></script>
 </body>
 </html>

@@ -1,10 +1,50 @@
 /**
  * Created by 1494778 on 2016-04-11.
  */
+
 (function () {
     "use strict";
+
+    var theTemplateScript = $("#menuUL").html();
+
+    var theTemplate = Handlebars.compile(theTemplateScript);
+
+    var context =
+    {
+        projets: [
+            {
+                nom: "Langues",
+                dir: "langues",
+                description: "Pratique de l'utilisation des sélecteurs et de la mise en page avec CSS3",
+                sujets: ["CSS3", "HTML5", "Sélecteurs"]
+            },
+            {
+                nom: "Pens",
+                dir: "pens",
+                description: "Exercices que j'ai faits sur CodePen",
+                sujets: []
+            },
+            {
+                nom: "Todo",
+                dir: "todo",
+                description: "",
+                sujets: []
+            },
+            {
+                nom: "Tutoriel",
+                dir: "mozilla",
+
+            },
+            {
+                nom: "Youtube",
+                dir: "youtube",
+            }
+        ]
+    }
+    var theCompiledHtml = theTemplate(context);
+    $('#ulMenu').append(theCompiledHtml);
+
     initAudio();
-    initMenu();
 
     function initAudio() {
         var isSourdine = localStorage.getItem('sourdine');
@@ -32,34 +72,5 @@
 
     }
 
-    function initMenu() {
-        var projets = [
-            {
-                nom: "Langues",
-                dir: "langues"
-            },
-            {
-                nom: "Pens",
-                dir: "pens"
-            },
-            {
-                nom: "Tutoriel",
-                dir: "mozilla"
-            },
-            {
-                nom: "Youtube",
-                dir: "youtube"
-            },
-            {
-                nom: "Todo",
-                dir: "todo"
-            }
-        ];
-        var ulMenu = document.querySelector("#ulMenu");
-        for (var i = 0; i < projets.length; i++) {
-            var li = document.createElement("li");
-            li.innerHTML = '<a  href="../' + projets[i].dir + '/index.html">' + projets[i].nom + '</a>';
-            ulMenu.appendChild(li);
-        }
-    };
+
 })();

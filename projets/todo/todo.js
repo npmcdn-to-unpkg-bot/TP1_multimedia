@@ -1,14 +1,14 @@
 /**
  * Created by 1494778 on 2016-04-14.
  */
-(function () {
+$(function () {
     "use strict";
+    var template = document.querySelector("template").content.firstElementChild;
 
-    var inputText = document.querySelector("#input"),
-        todolist = document.querySelector("#todolist"),
-        donelist = document.querySelector("#donelist"),
-        checkAllbBtn = document.querySelector("#checkAll"),
+    var inputText = document.querySelector("#input");
+    var checkAllbBtn = document.querySelector("#checkAll"),
         clearAllDoneBtn = document.querySelector("#clearAllDone");
+
     getData();
     clearAllDone();
     clearAlldone();
@@ -27,25 +27,24 @@
 
     function ajouterTodo(todoTexte) {
         todoTexte = todoTexte || 'Chose à faire';
-        var todo = document.createElement("article");
-        todo.innerHTML = '<input type="checkbox" >' +
-            '<div tabindex="0" contenteditable="true">' + todoTexte + '</div>' +
-            '<img  src="../../common/images/close.png" alt="delete" tabindex="0" >';
+        var todo = template.cloneNode(true);
+        todo.querySelector("div").textContent = todoTexte;
+        todolist.appendChild(todo);
         var img = todo.querySelector('img'),
             checkbox = todo.querySelector('input'),
-            div = todo.querySelector('div');
+            div = todo.querySelector('.todotexte');
         div.onkeypress = function (e) {
             if (!e) e = window.event;
             var keyCode = e.keyCode || e.which;
             if (keyCode == '13') {
                 var sibling = this.parentNode.nextElementSibling;
                 if (sibling)
-                    sibling.querySelector("div").focus();
+                    sibling.querySelector(".todotexte").focus();
                 else if (this.parentNode.parentNode.nextElementSibling) {
                     console.log((this.parentNode).parentNode.nextElementSibling);
                     var article = this.parentNode.parentNode.nextElementSibling.querySelector("article");
                     if (article) {
-                        article.querySelector("div").focus()
+                        article.querySelector(".todotexte").focus()
                     } else {
                         inputText.focus();
                     }
