@@ -1,7 +1,7 @@
 /**
  * Created by 1494778 on 2016-04-28.
  */
-$(function () {
+(function () {
     "use strict";
 
     var template = document.querySelector("template").content.firstElementChild;

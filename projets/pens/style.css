@@ -64,7 +64,7 @@ a:active {
     opacity: 1;
 }
 
-#pen {
+.pen {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;

@@ -151,7 +151,7 @@ a:active {
     flex-direction: row;
     margin-top: 20px;
 }
-#alltasks div div {
+article div div {
     padding-left: 20px;
     padding-top: 2px;
     padding-bottom: 2px;
@@ -169,13 +169,13 @@ a:active {
     -o-transition: background 1s;
     transition: background 1s;
 }
-#alltasks div article {
+article {
     margin-bottom: 10px;
     width: 100%;
     display: inline-flex;
 }
 
-#alltasks div div:focus{
+article div div:focus{
     font-weight: bold;
     border-radius: 5px;
     color: black;
@@ -187,7 +187,7 @@ a:active {
     border-right: 5px solid white;
     background-color: #474747;
 }
-#alltasks img{
+article img{
     margin-top: auto;
     margin-bottom: auto;
     margin-left: auto;
@@ -195,18 +195,19 @@ a:active {
     border-radius: 10px;
     transition: box-shadow 1s;
 }
-#alltasks img:hover {
-    box-shadow: 0 0 3px 3px #e8e8e8;
-}#alltasks img:focus{
+article img:hover {
     box-shadow: 0 0 3px 3px #e8e8e8;
 }
-#alltasks input{
+article img:focus{
+    box-shadow: 0 0 3px 3px #e8e8e8;
+}
+article input{
     -webkit-transition: box-shadow 1s;
     margin-left: 5%;
 }
-#alltasks input:hover{
+article input:hover{
     box-shadow: 0 0 3px 3px #e8e8e8;
-} #alltasks input:focus{
+} article input:focus{
     box-shadow: 0 0 3px 3px #e8e8e8;
 }
 #doneList {

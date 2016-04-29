@@ -1,7 +1,6 @@
 /**
  * Created by 1494778 on 2016-04-11.
  */
-
 (function () {
     "use strict";
 
@@ -22,13 +21,12 @@
                 nom: "Pens",
                 dir: "pens",
                 description: "Exercices que j'ai faits sur CodePen",
-                sujets: []
+                sujets: ["CSS3", "JavaScript"]
             },
             {
                 nom: "Todo",
                 dir: "todo",
-                description: "Exercice de gestion de liste avec Javascript",
-                sujets: []
+                description: "Exercice de gestion de liste avec Javascript"
             },
             {
                 nom: "Tutoriel",
@@ -69,8 +67,5 @@
             bCheck.checked ? label.title = "Désactiver la sourdine" : label.title = "Activer la sourdine";
             localStorage.setItem('sourdine', bCheck.checked);
         };
-
     }
-
-
 })();
