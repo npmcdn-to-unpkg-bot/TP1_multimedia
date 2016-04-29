@@ -35,7 +35,16 @@
     {{#each projets}}
     <li> <a  href="../{{dir}}/index.html">{{nom}}</a>
     {{#if description}}
-    <span>{{description}}</span>
+
+    <div class="description">{{description}}
+        {{#if sujets}}
+        </br>
+        <span>Sujets:</span>
+        {{#each sujets}}
+        <span class="sujet"> {{this}}</span>
+        {{/each}}
+        {{if}}
+    </div>
     {{/if}}
     </li>
     {{/each}}

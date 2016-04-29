@@ -88,6 +88,42 @@ img{
     filter: grayscale(50%);
     transform: rotate(7deg);
 }
+.description{
+
+    background: black;
+    boder: solid, #d74dff, 2px;
+    color: #fffa62;
+    font-size: smaller;
+    border-radius: 10%;
+    font-size:70%;
+    min-width: 100px;
+    opacity: 0;
+    padding: 10px;
+    position: absolute;
+    rigth:0;
+    top: -10px;
+    transform:scale(0.4);
+    width:20%;
+    z-index:2;
+}
+li{
+    position: relative;
+}
+li:hover .description{
+    opacity: 1;
+    transition: 1s;
+    transform: scale(1);
+}
+li span{
+    color: red;
+}
+.sujet:nth-child(even){
+    color: #b64eff;
+}
+.sujet{
+    color: #37ffa1;
+}
+
 #degrader{
     /*background:  -webkit-linear-gradient(left, red , yellow);*/
     background: linear-gradient(to right, #ff399a, #8f28ff, #fff466, #ff399a, #8f28ff, #fff466, #ff399a, #8f28ff, #fff466);

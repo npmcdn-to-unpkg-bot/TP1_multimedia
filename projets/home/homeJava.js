@@ -27,7 +27,7 @@
             {
                 nom: "Todo",
                 dir: "todo",
-                description: "",
+                description: "Exercice de gestion de liste avec Javascript",
                 sujets: []
             },
             {
