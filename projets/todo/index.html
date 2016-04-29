@@ -19,13 +19,6 @@
         <div id="donelist"></div>
     </div>
 </div>
-<template>
-    <article>
-        <input type="checkbox">
-        <div tabindex="0" contenteditable="true" ><!-- Insérer le todo --></div>
-        <img src="../../common/images/close.png" alt="delete" tabindex="0">
-    </article>
-</template>
 
 <footer>
     <button id="checkAll"><img src="../../common/images/checkbox.png" alt="delete" tabindex="0">
@@ -33,7 +26,17 @@
     <button id="clearAllDone"><img src="../../common/images/close.png" alt="delete" tabindex="0">
         <label>Effacer les tâches complétées</label></button>
 </footer>
-<script src="todo.js"></script>
-<script src="handlebars-v4.0.5.js"></script>
+
+
+
+<template>
+    <article>
+        <input type="checkbox">
+        <div tabindex="0" contenteditable="true" ><!-- Insérer le todo --></div>
+        <img src="../../common/images/close.png" alt="delete" tabindex="0">
+    </article>
+</template>
+<!-- <script src="todo.js"></script>-->
+<script src="script.js"></script>
 </body>
 </html>

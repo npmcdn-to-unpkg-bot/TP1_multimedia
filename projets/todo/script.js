@@ -6,8 +6,10 @@ $(function () {
 
     var template = document.querySelector("template").content.firstElementChild;
 
-    var inputText = document.querySelector("#input");
-    var checkAllbBtn = document.querySelector("#checkAll"),
+    var inputText = document.querySelector("#input"),
+        todolist = document.querySelector("#todolist"),
+        donelist = document.querySelector("#donelist"),
+        checkAllbBtn = document.querySelector("#checkAll"),
         clearAllDoneBtn = document.querySelector("#clearAllDone");
 
     getData();
@@ -31,8 +33,154 @@ $(function () {
         var todo = template.cloneNode(true);
         todo.querySelector("div").textContent = todoTexte;
         todolist.appendChild(todo);
+        var img = todo.querySelector('img'),
+            checkbox = todo.querySelector('input'),
+            div = todo.querySelector('div');
+        
+        div.onkeypress = function (e) {
+            if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            if (keyCode == '13') {
+                var sibling = this.parentNode.nextElementSibling;
+                if (sibling)
+                    sibling.querySelector("div").focus();
+                else if (this.parentNode.parentNode.nextElementSibling) {
+                    console.log((this.parentNode).parentNode.nextElementSibling);
+                    var article = this.parentNode.parentNode.nextElementSibling.querySelector("article");
+                    if (article) {
+                        article.querySelector("div").focus()
+                    } else {
+                        inputText.focus();
+                    }
+                } else
+                    inputText.focus();
+                return false;
+            }
+        };
+        div.onblur = function () {
+            dataUpdated();
+        };
+        checkbox.onchange = function () {
+            checkbox_onchange(this, todo);
+        };
+        checkbox.onkeypress = function (e) {
+            if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            if (keyCode == '32') {
+                checkbox_onkeypress(this, todo);
+                return false;
+            }
+            if (keyCode == '13') {
+                checkbox_onkeypress(this, todo);
+                return false;
+            }
+
+        };
+        img.onclick = function () {
+            deleteTodo(this);
+        };
+        img.onkeypress = deleteTodoOnEnter;
+        todolist.insertBefore(todo, todolist.firstChild);
+
+        clearAllDone();
+        dataUpdated();
+        return todo;
     }
 
+    function checkbox_onkeypress(checkbox, todo) {
+        checkbox.checked ? checkbox.checked = false : checkbox.checked = true;
+        checkbox_onchange(checkbox, todo);
+
+    }
+
+    function deleteTodo(node) {
+        var sibling = node.parentNode.nextElementSibling;
+        if (sibling)
+            sibling.querySelector("img").focus();
+        else if (node.parentNode.parentNode.nextElementSibling) {
+            //console.log((node.parentNode).parentNode.nextElementSibling);
+            var article = node.parentNode.parentNode.nextElementSibling.querySelector("article");
+            if (article) {
+                article.querySelector("img").focus()
+            } else {
+                if (node.parentNode.parentNode.childNodes.length > 1) {
+                    node.parentNode.parentNode.childNodes[node.parentNode.parentNode.childNodes.length - 2].querySelector("img").focus();
+                } else {
+                    inputText.focus();
+                }
+            }
+        } else {
+            if (donelist.childNodes.length > 1) {
+                donelist.childNodes[donelist.childNodes.length - 2].querySelector("img").focus();
+            }
+            else if (todolist.childNodes.length > 1) {
+                todolist.lastChild.querySelector("img").focus();
+            } else {
+                inputText.focus();
+            }
+
+        }
+
+        node.parentNode.outerHTML = "";
+
+
+        clearAllDone();
+        clearAlldone();
+        dataUpdated();
+    }
+
+
+    function checkbox_onchange(checkbox, todo) {
+        if (checkbox.checked) {
+            donelist.insertBefore(todo, donelist.firstChild);
+        } else {
+            todolist.appendChild(todo);
+        }
+        dataUpdated();
+        clearAllDone();
+        clearAlldone();
+    }
+
+    function deleteTodoOnEnter(e) {
+        if (!e) e = window.event;
+        var keyCode = e.keyCode || e.which;
+        if (keyCode == '13') {
+            deleteTodo(this);
+            return false;
+        }
+    }
+
+    function clearAlldone() {
+        if (donelist.childNodes.length == 0) {
+            clearAllDoneBtn.disabled = true;
+        } else {
+            clearAllDoneBtn.disabled = false;
+        }
+    }
+
+    function clearAllDone() {
+        if (todolist.childNodes.length == 0) {
+            checkAllbBtn.disabled = true;
+        } else {
+            checkAllbBtn.disabled = false;
+        }
+    }
+
+
+    checkAllbBtn.addEventListener("click", function () {
+        var checkboxes = todolist.querySelectorAll("input");
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = true;
+            checkbox_onchange(checkboxes[i], checkboxes[i].parentNode);
+        }
+    });
+
+    clearAllDoneBtn.onclick = function () {
+        var todos = donelist.querySelectorAll("input");
+        for (var i = 0; i < todos.length; i++) {
+            deleteTodo(todos[i]);
+        }
+    };
 
     function getData() {
         var json = JSON.parse(localStorage.getItem("todos")), i, todo;
@@ -70,16 +218,5 @@ $(function () {
         localStorage.setItem("todos", JSON.stringify(json));
     }
 
-    checkAllbBtn.addEventListener("click", function () {
-        var checkboxes = todolist.querySelectorAll("input");
-        for (var i = 0; i < checkboxes.length; i++) {
-            checkboxes[i].checked = true;
-            checkbox_onchange(checkboxes[i], checkboxes[i].parentNode);
-        }
-    });
 
-    clearAllDoneBtn.onclick = function () {
-        donelist.innerHTML = "";
-    };
-
-});
+})();
