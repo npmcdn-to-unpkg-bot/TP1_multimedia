@@ -2,7 +2,7 @@
  * Created by 1494778 on 2016-04-14.
  */
 document.write(
-'<link rel="stylesheet" href="style.css">',
+'<link rel="stylesheet" href="style.less">',
     '<link rel="shortcut icon" href="..//images/faviconit/favicon.ico">',
     '<link rel="icon" sizes="16x16 32x32 64x64" href="..//images/faviconit/favicon.ico">',
     '<link rel="icon" type="image/png" sizes="196x196" href="../../common/images/faviconit/favicon-192.png">',
