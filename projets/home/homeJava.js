@@ -29,7 +29,28 @@
                 description: "Exercice de gestion de liste avec Javascript"
             },
             {
-                nom: "Tutoriel",
+                nom: "Todo",
+                dir: "todo",
+                description: "Exercice de gestion de liste avec Javascript",
+                skin:" ",
+                skinLong: "classique"
+            },
+            {
+                nom: "Todo",
+                dir: "todo",
+                description: "Exercice de gestion de liste avec Javascript",
+                skin:"red-on-yellow",
+                skinLong: "jaune"
+            },
+            {
+                nom: "Todo",
+                dir: "todo",
+                description: "Exercice de gestion de liste avec Javascript",
+                skin:"sky-blue",
+                skinLong: "skyblue"
+            },
+            {
+                nom: "TutorielJS",
                 dir: "mozilla",
 
             },

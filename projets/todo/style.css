@@ -1,85 +1,72 @@
-body {
+:root body {
   background: black;
-  color: white;
+  color: #a65fff;
   text-align: center;
   margin: 0 auto;
 }
-h1 {
-  color: deeppink;
+:root h1 {
+  color: #a65fff;
   font-family: 'Gigi', cursive;
   font-size: 300%;
   text-align: left;
   text-indent: 15%;
 }
-h2 {
-  color: greenyellow;
+:root h2 {
+  color: #a65fff;
   font-family: 'Gigi', cursive;
 }
-p {
-  color: lightskyblue;
-  text-align: justify;
-  text-indent: 40px;
-}
-li {
-  text-align: left;
-  text-indent: 20px;
-  -webkit-transition: font-size 2s;
-}
-li:hover {
-  font-size: 200%;
-}
-header {
+:root header {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
 }
-a:link {
+:root a:link {
   color: #ff5642;
 }
-a:visited {
+:root a:visited {
   color: #45ff94;
 }
-a:hover {
+:root a:hover {
   color: hotpink;
   /*text-shadow: 6em 0.0em 0.05em #43ff65;*/
   /*width: 300%;*/
 }
-a:active {
-  color: #50a1ff;
+:root a:active {
+  color: #4effbe;
 }
-.hide-on-small-screen {
-  color: deeppink;
+:root .hide-on-small-screen {
+  color: hotpink;
   font-weight: bold;
   margin: 10px;
 }
 @media screen and (max-width: 420px) {
-  .hide-on-small-screen {
+  :root .hide-on-small-screen {
     font-size: 0;
     margin: auto;
   }
-  .panel {
+  :root .panel {
     margin: auto;
     flex: 1;
   }
 }
-#input {
-  background-color: #8f28ff;
+:root #input {
+  background-color: #a65fff;
   border-radius: 5px;
-  border-color: #8f28ff;
+  border-color: #a65fff;
   width: calc(75%);
   margin: 10px;
-  box-shadow: 0 0 3px 3px #8f28ff;
+  box-shadow: 0 0 3px 3px #a65fff;
 }
-#input::-moz-placeholder {
+:root #input::-moz-placeholder {
   color: black;
   opacity: .7;
   margin-right: 10px;
 }
-#input::value {
+:root #input::value {
   color: black;
   font-weight: bold;
 }
-#accueil {
+:root #accueil {
   -moz-box-shadow: inset 0 0 10px;
   -webkit-box-shadow: inset 0 0 10px;
   box-shadow: inset 0 0 10px white;
@@ -94,29 +81,28 @@ a:active {
   -webkit-transition: opacity 1s;
   transition: opacity 1s;
 }
-#accueil a {
+:root #accueil a {
   font-size: 150%;
 }
-#accueil :hover {
+:root #accueil :hover {
   opacity: 1;
 }
-#cadre {
+:root #cadre {
   border-style: solid;
   border-width: thick;
   border-color: #a65fff;
   position: relative;
   border-radius: 15px;
   max-width: 650px;
-  -webkit-animation: mymove 10s infinite alternate;
   text-align: center;
   margin: 30px auto;
 }
-#todolist {
+:root #todolist {
   display: flex;
   flex-wrap: wrap;
   width: 90%;
 }
-#todolist :empty::after {
+:root #todolist :empty::after {
   content: "Veuillez entrer une nouvelle tâche à faire svp!";
   font-style: italic;
   font-family: serif;
@@ -124,30 +110,30 @@ a:active {
   text-align: center;
   margin-left: 30%;
 }
-#alltasks {
+:root #alltasks {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   margin-top: 20px;
 }
-#alltasks div div:hover {
+:root #alltasks div div:hover {
   border-left: 5px solid white;
   border-right: 5px solid white;
   background-color: #474747;
 }
-#doneList {
+:root #doneList {
   opacity: .7;
 }
-#doneList .text {
+:root #doneList .text {
   text-decoration: line-through;
-  text-line-through-style: #8f28ff;
+  text-line-through-style: #a65fff;
 }
-article {
+:root article {
   margin-bottom: 10px;
   width: 100%;
   display: inline-flex;
 }
-article div div {
+:root article div div {
   padding-left: 20px;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -165,13 +151,13 @@ article div div {
   -o-transition: background 1s;
   transition: background 1s;
 }
-article div div:focus {
+:root article div div:focus {
   font-weight: bold;
   border-radius: 5px;
   color: black;
   background-color: white;
 }
-article img {
+:root article img {
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
@@ -179,23 +165,23 @@ article img {
   border-radius: 10px;
   transition: box-shadow 1s;
 }
-article img:hover {
-  box-shadow: 0 0 3px 3px #e8e8e8;
+:root article img:hover {
+  box-shadow: 0 0 3px 3px white;
 }
-article input {
+:root article input {
   -webkit-transition: box-shadow 1s;
   margin-left: 5%;
 }
-article img:focus {
-  box-shadow: 0 0 3px 3px #e8e8e8;
+:root article img:focus {
+  box-shadow: 0 0 3px 3px white;
 }
-article input:hover {
-  box-shadow: 0 0 3px 3px #e8e8e8;
+:root article input:hover {
+  box-shadow: 0 0 3px 3px white;
 }
-article input:focus {
-  box-shadow: 0 0 3px 3px #e8e8e8;
+:root article input:focus {
+  box-shadow: 0 0 3px 3px white;
 }
-footer {
+:root footer {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -209,21 +195,21 @@ footer {
   -o-transition: 1s ease-in-out;
   transition: 1s ease-in-out;
 }
-footer :hover,
-footer .footer:focus {
+:root footer :hover,
+:root footer .footer:focus {
   opacity: 1;
 }
-footer input {
+:root footer input {
   tab-index: 1;
 }
-footer img {
+:root footer img {
   width: 15px;
   height: auto;
   vertical-align: middle;
 }
-footer > * {
+:root footer > * {
   border: solid 1px gray;
-  color: cyan;
+  color: #4effbe;
   background: linear-gradient(white, rgba(255, 255, 255, 0.9));
   flex: 1;
   mix-blend-mode: difference;
@@ -235,27 +221,470 @@ footer > * {
   -o-transition: 1s ease-in-out;
   transition: 1s ease-in-out;
 }
-footer > *:hover,
-.footer > *:focus {
-  text-shadow: 0 0 10px blue;
+:root footer > *:hover,
+:root .footer > *:focus {
+  text-shadow: 0 0 10px hotpink;
 }
-footer > *:disabled {
+:root footer > *:disabled {
   display: none;
 }
-@-webkit-keyframes mymove {
-  0% {
-    border-color: #a65fff;
+:root.red-on-yellow body {
+  background: #f4ff6d;
+  color: #ff0315;
+  text-align: center;
+  margin: 0 auto;
+}
+:root.red-on-yellow h1 {
+  color: #ff0315;
+  font-family: 'Gigi', cursive;
+  font-size: 300%;
+  text-align: left;
+  text-indent: 15%;
+}
+:root.red-on-yellow h2 {
+  color: #ff0315;
+  font-family: 'Gigi', cursive;
+}
+:root.red-on-yellow header {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+:root.red-on-yellow a:link {
+  color: #ff6da2;
+}
+:root.red-on-yellow a:visited {
+  color: #45ff94;
+}
+:root.red-on-yellow a:hover {
+  color: #5fff4c;
+  /*text-shadow: 6em 0.0em 0.05em #43ff65;*/
+  /*width: 300%;*/
+}
+:root.red-on-yellow a:active {
+  color: #ff7d6a;
+}
+:root.red-on-yellow .hide-on-small-screen {
+  color: #5fff4c;
+  font-weight: bold;
+  margin: 10px;
+}
+@media screen and (max-width: 420px) {
+  :root.red-on-yellow .hide-on-small-screen {
+    font-size: 0;
+    margin: auto;
   }
-  25% {
-    border-color: #50a1ff;
+  :root.red-on-yellow .panel {
+    margin: auto;
+    flex: 1;
   }
-  50% {
-    border-color: #ff78f4;
+}
+:root.red-on-yellow #input {
+  background-color: #ff0315;
+  border-radius: 5px;
+  border-color: #ff0315;
+  width: calc(75%);
+  margin: 10px;
+  box-shadow: 0 0 3px 3px #ff0315;
+}
+:root.red-on-yellow #input::-moz-placeholder {
+  color: #f4ff6d;
+  opacity: .7;
+  margin-right: 10px;
+}
+:root.red-on-yellow #input::value {
+  color: #f4ff6d;
+  font-weight: bold;
+}
+:root.red-on-yellow #accueil {
+  -moz-box-shadow: inset 0 0 10px;
+  -webkit-box-shadow: inset 0 0 10px;
+  box-shadow: inset 0 0 10px #13ffdf;
+  position: fixed;
+  background-color: #a2a2a2;
+  top: 0em;
+  right: 0em;
+  padding: 30px;
+  border-radius: 0 0 0 15px;
+  opacity: .8;
+  z-index: 1;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+:root.red-on-yellow #accueil a {
+  font-size: 150%;
+}
+:root.red-on-yellow #accueil :hover {
+  opacity: 1;
+}
+:root.red-on-yellow #cadre {
+  border-style: solid;
+  border-width: thick;
+  border-color: #ff0315;
+  position: relative;
+  border-radius: 15px;
+  max-width: 650px;
+  text-align: center;
+  margin: 30px auto;
+}
+:root.red-on-yellow #todolist {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+}
+:root.red-on-yellow #todolist :empty::after {
+  content: "Veuillez entrer une nouvelle tâche à faire svp!";
+  font-style: italic;
+  font-family: serif;
+  color: #ff7d6a;
+  text-align: center;
+  margin-left: 30%;
+}
+:root.red-on-yellow #alltasks {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 20px;
+}
+:root.red-on-yellow #alltasks div div:hover {
+  border-left: 5px solid #13ffdf;
+  border-right: 5px solid #13ffdf;
+  background-color: #474747;
+}
+:root.red-on-yellow #doneList {
+  opacity: .7;
+}
+:root.red-on-yellow #doneList .text {
+  text-decoration: line-through;
+  text-line-through-style: #ff0315;
+}
+:root.red-on-yellow article {
+  margin-bottom: 10px;
+  width: 100%;
+  display: inline-flex;
+}
+:root.red-on-yellow article div div {
+  padding-left: 20px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  width: 75%;
+  text-align: left;
+  word-wrap: break-word;
+  line-height: 80%;
+  color: #13ffdf;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 100%;
+  -webkit-transition: background 1s;
+  -moz-transition: background 1s;
+  -ms-transition: background 1s;
+  -o-transition: background 1s;
+  transition: background 1s;
+}
+:root.red-on-yellow article div div:focus {
+  font-weight: bold;
+  border-radius: 5px;
+  color: #f4ff6d;
+  background-color: #13ffdf;
+}
+:root.red-on-yellow article img {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  height: 15px;
+  border-radius: 10px;
+  transition: box-shadow 1s;
+}
+:root.red-on-yellow article img:hover {
+  box-shadow: 0 0 3px 3px #13ffdf;
+}
+:root.red-on-yellow article input {
+  -webkit-transition: box-shadow 1s;
+  margin-left: 5%;
+}
+:root.red-on-yellow article img:focus {
+  box-shadow: 0 0 3px 3px #13ffdf;
+}
+:root.red-on-yellow article input:hover {
+  box-shadow: 0 0 3px 3px #13ffdf;
+}
+:root.red-on-yellow article input:focus {
+  box-shadow: 0 0 3px 3px #13ffdf;
+}
+:root.red-on-yellow footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  background: #13ffdf;
+  opacity: .7;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -ms-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+:root.red-on-yellow footer :hover,
+:root.red-on-yellow footer .footer:focus {
+  opacity: 1;
+}
+:root.red-on-yellow footer input {
+  tab-index: 1;
+}
+:root.red-on-yellow footer img {
+  width: 15px;
+  height: auto;
+  vertical-align: middle;
+}
+:root.red-on-yellow footer > * {
+  border: solid 1px gray;
+  color: #ff7d6a;
+  background: linear-gradient(#13ffdf, rgba(255, 255, 255, 0.9));
+  flex: 1;
+  mix-blend-mode: difference;
+  padding: 10px;
+  cursor: pointer;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -ms-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+:root.red-on-yellow footer > *:hover,
+:root.red-on-yellow .footer > *:focus {
+  text-shadow: 0 0 10px #5fff4c;
+}
+:root.red-on-yellow footer > *:disabled {
+  display: none;
+}
+:root.sky-blue body {
+  background: #000000;
+  color: skyblue;
+  text-align: center;
+  margin: 0 auto;
+}
+:root.sky-blue h1 {
+  color: skyblue;
+  font-family: 'Gigi', cursive;
+  font-size: 300%;
+  text-align: left;
+  text-indent: 15%;
+}
+:root.sky-blue h2 {
+  color: skyblue;
+  font-family: 'Gigi', cursive;
+}
+:root.sky-blue header {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+:root.sky-blue a:link {
+  color: #ffa9c6;
+}
+:root.sky-blue a:visited {
+  color: #45ff94;
+}
+:root.sky-blue a:hover {
+  color: #a3ff9a;
+  /*text-shadow: 6em 0.0em 0.05em #43ff65;*/
+  /*width: 300%;*/
+}
+:root.sky-blue a:active {
+  color: #ddb1ff;
+}
+:root.sky-blue .hide-on-small-screen {
+  color: #a3ff9a;
+  font-weight: bold;
+  margin: 10px;
+}
+@media screen and (max-width: 420px) {
+  :root.sky-blue .hide-on-small-screen {
+    font-size: 0;
+    margin: auto;
   }
-  75% {
-    border-color: #ffc194;
+  :root.sky-blue .panel {
+    margin: auto;
+    flex: 1;
   }
-  100% {
-    border-color: #a65fff;
-  }
+}
+:root.sky-blue #input {
+  background-color: skyblue;
+  border-radius: 5px;
+  border-color: skyblue;
+  width: calc(75%);
+  margin: 10px;
+  box-shadow: 0 0 3px 3px skyblue;
+}
+:root.sky-blue #input::-moz-placeholder {
+  color: #000000;
+  opacity: .7;
+  margin-right: 10px;
+}
+:root.sky-blue #input::value {
+  color: #000000;
+  font-weight: bold;
+}
+:root.sky-blue #accueil {
+  -moz-box-shadow: inset 0 0 10px;
+  -webkit-box-shadow: inset 0 0 10px;
+  box-shadow: inset 0 0 10px #ff6484;
+  position: fixed;
+  background-color: #a2a2a2;
+  top: 0em;
+  right: 0em;
+  padding: 30px;
+  border-radius: 0 0 0 15px;
+  opacity: .8;
+  z-index: 1;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+:root.sky-blue #accueil a {
+  font-size: 150%;
+}
+:root.sky-blue #accueil :hover {
+  opacity: 1;
+}
+:root.sky-blue #cadre {
+  border-style: solid;
+  border-width: thick;
+  border-color: skyblue;
+  position: relative;
+  border-radius: 15px;
+  max-width: 650px;
+  text-align: center;
+  margin: 30px auto;
+}
+:root.sky-blue #todolist {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+}
+:root.sky-blue #todolist :empty::after {
+  content: "Veuillez entrer une nouvelle tâche à faire svp!";
+  font-style: italic;
+  font-family: serif;
+  color: #ddb1ff;
+  text-align: center;
+  margin-left: 30%;
+}
+:root.sky-blue #alltasks {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 20px;
+}
+:root.sky-blue #alltasks div div:hover {
+  border-left: 5px solid #ff6484;
+  border-right: 5px solid #ff6484;
+  background-color: #474747;
+}
+:root.sky-blue #doneList {
+  opacity: .7;
+}
+:root.sky-blue #doneList .text {
+  text-decoration: line-through;
+  text-line-through-style: skyblue;
+}
+:root.sky-blue article {
+  margin-bottom: 10px;
+  width: 100%;
+  display: inline-flex;
+}
+:root.sky-blue article div div {
+  padding-left: 20px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  width: 75%;
+  text-align: left;
+  word-wrap: break-word;
+  line-height: 80%;
+  color: #ff6484;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 100%;
+  -webkit-transition: background 1s;
+  -moz-transition: background 1s;
+  -ms-transition: background 1s;
+  -o-transition: background 1s;
+  transition: background 1s;
+}
+:root.sky-blue article div div:focus {
+  font-weight: bold;
+  border-radius: 5px;
+  color: #000000;
+  background-color: #ff6484;
+}
+:root.sky-blue article img {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  height: 15px;
+  border-radius: 10px;
+  transition: box-shadow 1s;
+}
+:root.sky-blue article img:hover {
+  box-shadow: 0 0 3px 3px #ff6484;
+}
+:root.sky-blue article input {
+  -webkit-transition: box-shadow 1s;
+  margin-left: 5%;
+}
+:root.sky-blue article img:focus {
+  box-shadow: 0 0 3px 3px #ff6484;
+}
+:root.sky-blue article input:hover {
+  box-shadow: 0 0 3px 3px #ff6484;
+}
+:root.sky-blue article input:focus {
+  box-shadow: 0 0 3px 3px #ff6484;
+}
+:root.sky-blue footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  background: #ff6484;
+  opacity: .7;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -ms-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+:root.sky-blue footer :hover,
+:root.sky-blue footer .footer:focus {
+  opacity: 1;
+}
+:root.sky-blue footer input {
+  tab-index: 1;
+}
+:root.sky-blue footer img {
+  width: 15px;
+  height: auto;
+  vertical-align: middle;
+}
+:root.sky-blue footer > * {
+  border: solid 1px gray;
+  color: #ddb1ff;
+  background: linear-gradient(#ff6484, rgba(255, 255, 255, 0.9));
+  flex: 1;
+  mix-blend-mode: difference;
+  padding: 10px;
+  cursor: pointer;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -ms-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+:root.sky-blue footer > *:hover,
+:root.sky-blue .footer > *:focus {
+  text-shadow: 0 0 10px #a3ff9a;
+}
+:root.sky-blue footer > *:disabled {
+  display: none;
 }

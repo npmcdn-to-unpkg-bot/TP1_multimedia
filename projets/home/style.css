@@ -141,6 +141,18 @@ li span{
     text-align: center;
     margin:30px auto;
 }
+#classiqueTodo{
+color: #8f28ff;
+}
+
+#jauneTodo{
+color: #fff466;
+}
+
+#skyblueTodo{
+    color: skyblue;
+}
+
 @-webkit-keyframes mymove {
     0% {border-color: #a65fff;}
     25% {border-color: #50a1ff;}

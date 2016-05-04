@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Accueil</title>
     <link rel="stylesheet" media="screen" href="style.css">
 
@@ -33,9 +34,13 @@
 </audio>
 <script id="menuUL" type="text/x-handlebars-template" >
     {{#each projets}}
+    {{#if skin}}
+    <li> <a  href="../{{dir}}/index.html?skin={{skin}}">{{nom}} (<span id='{{skinLong}}Todo'>{{skinLong}}</span>) </a>
+        {{else}}
     <li> <a  href="../{{dir}}/index.html">{{nom}}</a>
-    {{#if description}}
+       {{/if}}
 
+    {{#if description}}
     <div class="description">{{description}}
         {{#if sujets}}
         </br>

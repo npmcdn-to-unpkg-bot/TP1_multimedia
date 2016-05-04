@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" class="">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Todo</title>
     <!--<link rel="stylesheet" media="screen" href="style.less">-->
-    <link rel="stylesheet/less" type="text/css" href="style.less" />
+    <link rel="stylesheet" type="text/css" href="app.min.css"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.6.1/less.min.js"></script>
     <script src="../../common/js/favicon.js"></script>
 </head>
 <body>
-<div id="accueil"><a href="../home/index.html">Retour à l'accueil</a></div>
+<div id="accueil"><a href="../home/index.html">Retour à l'accueil</a>
+    <div><label>Skin:</label> <select id="selectSkin">
+        <option value="">Purple on Black</option>
+        <option value="red-on-yellow">Red on Yellow</option>
+        <option value="sky-blue">Sky Blue</option>
+    </select></div>
+</div>
 <h1>Todo</h1>
 <div id="cadre">
     <header>
@@ -17,10 +24,10 @@
         <input type="TEXT" id="input" placeholder="Entrez ici..." autofocus>
     </header>
     <div id="alltasks"></div>
-        <div id="todolist"></div>
-        <div id="donelist"></div>
-    </div>
+    <div id="todolist"></div>
+    <div id="donelist"></div>
 </div>
+
 
 <footer>
     <button id="checkAll"><img src="../../common/images/checkbox.png" alt="delete" tabindex="0">
@@ -30,11 +37,10 @@
 </footer>
 
 
-
 <template>
     <article>
         <input type="checkbox">
-        <div tabindex="0" contenteditable="true" ><!-- Insérer le todo --></div>
+        <div tabindex="0" contenteditable="true"><!-- Insérer le todo --></div>
         <img src="../../common/images/close.png" alt="delete" tabindex="0">
     </article>
 </template>

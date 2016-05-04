@@ -1,0 +1,263 @@
+.skin(@main-color: #a65fff,
+@background-color: black,
+@highlight-color: white,
+@flash-color: #4effbe,
+@fun-color: hotpink,
+@other-color: #ff5642,
+@visit-color: #4bff62) {
+
+  body {
+    background: @background-color;
+    color: @main-color;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  h1 {
+    color: @main-color;
+    font-family: 'Gigi', cursive;
+    font-size: 300%;
+    text-align: left;
+    text-indent: 15%;
+  }
+
+  h2 {
+    color: @main-color;
+    font-family: 'Gigi', cursive;
+  }
+
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  a:link {
+    color: @other-color;
+  }
+
+  a:visited {
+    color: #45ff94;
+  }
+
+  a:hover {
+    color: @fun-color;
+    /*text-shadow: 6em 0.0em 0.05em #43ff65;*/
+    /*width: 300%;*/
+  }
+
+  a:active {
+    color: @flash-color;
+  }
+
+  .hide-on-small-screen {
+    color: @fun-color;
+    font-weight: bold;
+    margin: 10px;
+  }
+
+  @media screen and (max-width: 420px) {
+    .hide-on-small-screen {
+      font-size: 0;
+      margin: auto;
+    }
+
+    .panel {
+      margin: auto;
+      flex: 1;
+    }
+  }
+
+  #input {
+    background-color: @main-color;
+    border-radius: 5px;
+    border-color: @main-color;
+    width: calc(80% - 5px);
+    margin: 10px;
+    box-shadow: 0 0 3px 3px @main-color;
+  }
+
+  #input::-moz-placeholder {
+    color: @background-color;
+    opacity: .7;
+    margin-right: 10px;
+  }
+
+  #input::value {
+    color: @background-color;
+    font-weight: bold;
+  }
+
+  #accueil {
+    -moz-box-shadow: inset 0 0 10px;
+    -webkit-box-shadow: inset 0 0 10px;
+    box-shadow: inset 0 0 10px @highlight-color;
+    position: fixed;
+    background-color: #a2a2a2;
+    top: 0em;
+    right: 0em;
+    padding: 30px;
+    border-radius: 0 0 0 15px;
+    opacity: .8;
+    z-index: 1;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+    a {
+      font-size: 150%;
+    }
+    :hover {
+      opacity: 1;
+    }
+  }
+
+  #cadre {
+    border-style: solid;
+    border-width: thick;
+    border-color: @main-color;
+    position: relative;
+    border-radius: 15px;
+    max-width: 650px;
+    text-align: center;
+    margin: 30px auto;
+  }
+
+  #todolist {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    :empty::after {
+      content: "Veuillez entrer une nouvelle tâche à faire svp!";
+      font-style: italic;
+      font-family: serif;
+      color: @flash-color;
+      text-align: center;
+      margin-left: 30%;
+    }
+  }
+
+  #alltasks {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 20px;
+    div div:hover {
+      border-left: 5px solid @highlight-color;
+      border-right: 5px solid @highlight-color;
+      background-color: #474747;
+    }
+  }
+
+  #doneList {
+    opacity: .7;
+    .text {
+      text-decoration: line-through;
+      text-line-through-style: @main-color;
+    }
+  }
+
+  article {
+    margin-bottom: 10px;
+    width: 100%;
+    display: inline-flex;
+    div div {
+      padding-left: 20px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      width: 75%;
+      text-align: left;
+      word-wrap: break-word;
+      line-height: 80%;
+      color: @highlight-color;
+      margin-top: auto;
+      margin-bottom: auto;
+      height: 100%;
+      -webkit-transition: background 1s;
+      -moz-transition: background 1s;
+      -ms-transition: background 1s;
+      -o-transition: background 1s;
+      transition: background 1s;
+    }
+    div div:focus {
+      font-weight: bold;
+      border-radius: 5px;
+      color: @background-color;
+      background-color: @highlight-color;
+    }
+    img {
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: auto;
+      height: 15px;
+      border-radius: 10px;
+      transition: box-shadow 1s;
+    }
+    img:hover {
+      box-shadow: 0 0 3px 3px @highlight-color;
+    }
+    input {
+      -webkit-transition: box-shadow 1s;
+      margin-left: 5%;
+    }
+    img:focus {
+      box-shadow: 0 0 3px 3px @highlight-color;
+    }
+    input:hover {
+      box-shadow: 0 0 3px 3px @highlight-color;
+    }
+    input:focus {
+      box-shadow: 0 0 3px 3px @highlight-color;
+    }
+
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    background: @highlight-color;
+    opacity: .7;
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -ms-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+    :hover, .footer:focus {
+      opacity: 1;
+    }
+    input {
+      tab-index: 1;
+    }
+    img {
+      width: 15px;
+      height: auto;
+      vertical-align: middle;
+    }
+  }
+
+  footer > * {
+    border: solid 1px gray;
+    color: @flash-color;
+    background: linear-gradient(@highlight-color, rgba(255, 255, 255, 0.9));
+    flex: 1;
+    mix-blend-mode: difference;
+    padding: 10px;
+    cursor: pointer;
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -ms-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+  }
+
+  footer > *:hover, .footer > *:focus {
+    text-shadow: 0 0 10px @fun-color;
+  }
+
+  footer > *:disabled {
+    display: none;
+  }
+
+}
+

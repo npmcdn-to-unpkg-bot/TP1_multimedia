@@ -10,12 +10,57 @@
         todolist = document.querySelector("#todolist"),
         donelist = document.querySelector("#donelist"),
         checkAllbBtn = document.querySelector("#checkAll"),
-        clearAllDoneBtn = document.querySelector("#clearAllDone");
+        clearAllDoneBtn = document.querySelector("#clearAllDone"),
+        skin = document.querySelector("#selectSkin"),
+        skins = ['blue-on-orange', 'sky-blue'];
 
+    skin.onchange = selectSkin;
+    selectSkin();
     getData();
     clearAllDone();
     clearAlldone();
     dataUpdated();
+
+    function parseQueryString(qstr){
+        var query= {};
+        var parameters= qstr.substr(1).split('&');
+        for(var i = 0; i< parameters.length;i++){
+            var keyAndValue = parameters[i].split('=');
+            var key = decodeURIComponent(keyAndValue[0]);
+            var value = decodeURIComponent(keyAndValue[1] || '');
+            query[key] = value;
+        }
+        return query;
+    }
+
+
+    function selectSkin() {
+
+        var selected = "";
+        if (this) {
+            selected = this.value;
+        } else {
+            if (location.search) {
+                var skin = parseQueryString(location.search);
+                console.log(location.search.substr(1));
+                if(skin.skin){
+                    if (skins.contains(skin.skin)) {
+                        selected = skin.skin;
+                    } else {
+                        selected = "";
+                    }
+                }
+
+            } else {
+                selected = localStorage.getItem("skin");
+            }
+            selectSkinInput.value = selected;
+        }
+        document.firstElementChild.className = selected;
+        localStorage.setItem("skin", selected);
+
+
+    };
 
 
     inputText.onkeypress = function (e) {
@@ -129,7 +174,6 @@
         dataUpdated();
     }
 
-
     function checkbox_onchange(checkbox, todo) {
         if (checkbox.checked) {
             donelist.insertBefore(todo, donelist.firstChild);
@@ -199,13 +243,16 @@
     function dataUpdated() {
         var json = {
                 todos: [],
-                doneTodos: []
+                doneTodos: [],
             },
             todos = todolist.querySelectorAll("article"),
             doneTodos = donelist.querySelectorAll("article"),
             todo, i;
         for (i = 0; i < todos.length; i++) {
-            todo = {checkbox: todos[i].querySelector("input").checked, text: todos[i].querySelector("div").textContent};
+            var todo = {
+                checkbox: todos[i].querySelector("input").checked,
+                text: todos[i].querySelector("div").textContent
+            };
             json.todos.push(todo);
         }
         for (i = 0; i < doneTodos.length; i++) {
