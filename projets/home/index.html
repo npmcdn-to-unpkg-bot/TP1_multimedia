@@ -14,7 +14,7 @@
 
 <div id="cadre">
     <div id="sourdine"><label id="labelSourdine">
-        <input id="checkBsoudine" type="checkbox" name="checkbox" value="value" >Sourdine</label>
+        <input id="checkBsoudine" type="checkbox" name="checkbox" value="value">Sourdine</label>
     </div>
     <div id="degrader">
         <h1>Fabienne Marquis</h1>
@@ -32,25 +32,29 @@
 <audio id="motBienvenu" controls autoplay>
     <source src="../media/siteInternet.m4a" type="audio/mp4">
 </audio>
-<script id="menuUL" type="text/x-handlebars-template" >
+<script id="menuUL" type="text/x-handlebars-template">
     {{#each projets}}
     {{#if skin}}
-    <li> <a  href="../{{dir}}/index.html?skin={{skin}}">{{nom}} (<span id='{{skinLong}}Todo'>{{skinLong}}</span>) </a>
+    <li><a href="../{{dir}}/index.html?skin={{skin}}">{{nom}} (<span id='{{skinLong}}Todo'>{{skinLong}}</span>) </a>
         {{else}}
-    <li> <a  href="../{{dir}}/index.html">{{nom}}</a>
-       {{/if}}
-
-    {{#if description}}
-    <div class="description">{{description}}
-        {{#if sujets}}
-        </br>
-        <span>Sujets:</span>
-        {{#each sujets}}
-        <span class="sujet"> {{this}}</span>
-        {{/each}}
+        {{#if git}}
+    <li><a href="{{git}}">{{nom}} </a></li>
+    {{else}}
+    <li><a href="../{{dir}}/index.html">{{nom}}</a>
         {{/if}}
-    </div>
-    {{/if}}
+        {{/if}}
+
+        {{#if description}}
+        <div class="description">{{description}}
+            {{#if sujets}}
+            </br>
+            <span>Sujets:</span>
+            {{#each sujets}}
+            <span class="sujet"> {{this}}</span>
+            {{/each}}
+            {{/if}}
+        </div>
+        {{/if}}
     </li>
     {{/each}}
 </script>

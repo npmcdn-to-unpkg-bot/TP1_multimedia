@@ -1,5 +1,9 @@
 {
   "projets": [
+    {
+      "nom": "GitHub",
+      "git": "http://fabiennemarquis.github.io/TP1_multimedia/projets/home/index.html"
+    },
   {
     "nom": "Langues",
     "dir": "langues",
