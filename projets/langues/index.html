@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Langues</title>
     <link rel="stylesheet" media="screen" href="langue.css">
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
     <script src="../../common/js/favicon.js"></script>
 
 </head>
 <body>
-<div id="accueil"><a href="../home/index.html">Retour à l'accueil</a></div>
+<div id="accueil"><a href="../home/index.html">Retour à l'accueil</a>
+    <div class="btn_div"><button id="btnIframe">Basculer iframe</button></div>
+    <div class="btn_div"><button id="btnPara">Basculer paragraphes</button></div>
+    <div class="btn_div"><button id="btnBtn">Basculer boutons</button></div>
+</div>
 <h1>Les langues</h1>
-
-    <iframe id="cadre" width="100%" src="langues.html"
-            onload="this.style.height=this.contentDocument.body.scrollHeight + 200 + 'px';">
+<div class="viewport border-anim">
+    <iframe id="cadre" width="100%" src="langues.html">
         <p>Impossible de charger <a href="langues.html"> cette page web </a> et de la mettre das un iframes.</p>
     </iframe>
-
+    </div>
+<script src="index.js"></script>
 </body>
 </html>

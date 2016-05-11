@@ -1,0 +1,9 @@
+<div id="page"><div id="menu"><h1>{{title}}</h1>
+<nav>
+  <a [routerLink]="['Dashboard']">Dashboard</a>
+  <a [routerLink]="['Heroes']">Heroes</a>
+  <a (click)="newHero()">New</a>
+</nav>
+</div>
+<router-outlet></router-outlet>
+</div>

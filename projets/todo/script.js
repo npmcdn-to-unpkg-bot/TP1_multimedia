@@ -21,14 +21,13 @@
     clearAlldone();
     dataUpdated();
 
-    function parseQueryString(qstr){
-        var query= {};
-        var parameters= qstr.substr(1).split('&');
-        for(var i = 0; i< parameters.length;i++){
-            var keyAndValue = parameters[i].split('=');
-            var key = decodeURIComponent(keyAndValue[0]);
-            var value = decodeURIComponent(keyAndValue[1] || '');
-            query[key] = value;
+    function parseQueryString(qstr) {
+        var query = {},
+            parameters = qstr.substr(1).split('&');
+        for (var i = 0; i < parameters.length; i++) {
+            var keyAndValue = parameters[i].split('='),
+                key = decodeURIComponent(keyAndValue[0]);
+            query[key] = decodeURIComponent(keyAndValue[1] || '');
         }
         return query;
     }

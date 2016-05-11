@@ -4,64 +4,26 @@
 (function () {
     "use strict";
 
-    var theTemplateScript = $("#menuUL").html();
+    var context = {
 
-    var theTemplate = Handlebars.compile(theTemplateScript);
+    },
+        ulMenu = document.querySelector("#ulMenu"),
+        theTemplateScript = $("#menuUL").html(),
+        theTemplate = Handlebars.compile(theTemplateScript),
+        theCompiledHtml;
+        jQuery.getJSON("projets.json")
+            .done( function (jsonDate ){
+            console.log(JSON.stringify(jsonDate, null, 4));
+                context=jsonDate;
+                theCompiledHtml = theTemplate(context);
+                $('#ulMenu').append(theCompiledHtml);
+            })
+            .fail( function () {
+                console.log("impossible de charger la JSON")
+            });
 
-    var context =
-    {
-        projets: [
-            {
-                nom: "Langues",
-                dir: "langues",
-                description: "Pratique de l'utilisation des sélecteurs et de la mise en page avec CSS3",
-                sujets: ["CSS3", "HTML5", "Sélecteurs"]
-            },
-            {
-                nom: "Pens",
-                dir: "pens",
-                description: "Exercices que j'ai faits sur CodePen",
-                sujets: ["CSS3", "JavaScript"]
-            },
-            {
-                nom: "Todo",
-                dir: "todo",
-                description: "Exercice de gestion de liste avec Javascript"
-            },
-            {
-                nom: "Todo",
-                dir: "todo",
-                description: "Exercice de gestion de liste avec Javascript",
-                skin:" ",
-                skinLong: "classique"
-            },
-            {
-                nom: "Todo",
-                dir: "todo",
-                description: "Exercice de gestion de liste avec Javascript",
-                skin:"red-on-yellow",
-                skinLong: "jaune"
-            },
-            {
-                nom: "Todo",
-                dir: "todo",
-                description: "Exercice de gestion de liste avec Javascript",
-                skin:"sky-blue",
-                skinLong: "skyblue"
-            },
-            {
-                nom: "TutorielJS",
-                dir: "mozilla",
 
-            },
-            {
-                nom: "Youtube",
-                dir: "youtube",
-            }
-        ]
-    }
-    var theCompiledHtml = theTemplate(context);
-    $('#ulMenu').append(theCompiledHtml);
+
 
     initAudio();
 
