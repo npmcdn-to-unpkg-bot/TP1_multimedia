@@ -42,9 +42,9 @@
             if (location.search) {
                 var skin = parseQueryString(location.search);
                 console.log(location.search.substr(1));
-                if(skin.skin){
-                    if (skins.contains(skin.skin)) {
-                        selected = skin.skin;
+                if(skin){
+                    if (skins.contains(skin)) {
+                        selected = skin;
                     } else {
                         selected = "";
                     }
