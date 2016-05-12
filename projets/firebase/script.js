@@ -6,13 +6,18 @@
     var counterMsg,
         myDataRef = new Firebase('https://crackling-torch-8087.firebaseio.com//'),
         inputMSG = $('#messageInput');
+    getName();
+
+
+    function getName() {
+        $('#nameInput').val(localStorage.getItem("nom"));
+        console.log(localStorage.getItem("nom"));
+    }
 
     myDataRef.on('value', function (snapshot) {
-        console.log('dans snapshot');
         counterMsg = 0;
         snapshot.forEach(function () {
             counterMsg++;
-            console.log('dans snapshot, compter');
         });
         if (counterMsg == 0) {
             $('#countMsg').text(counterMsg + ' message');
@@ -24,6 +29,7 @@
 
 
     $('#countMsg').click(function () {
+        console.log("lala ajouter");
         for (var i = 1; i == 50; i++) {
             var name = 'Anonymous';
             var text = i;
@@ -46,7 +52,7 @@
             var text = $('#messageInput').val();
             myDataRef.push({name: name, text: text});
             $('#messageInput').val('');
-            localStorage.setItem("name", $('#nameInput').val() );
+            localStorage.setItem("nom", $('#nameInput').val()) ;
         }
     });
     myDataRef.on('child_removed', function (oldChildSnapshot) {
@@ -56,7 +62,6 @@
     myDataRef.on('child_added', function (snapshot) {
         var message = snapshot.val();
         displayChatMessage(message.name, message.text);
-        $('#nameInput').text(localStorage.getItem("name"));
     });
 
     function displayChatMessage(name, text) {
