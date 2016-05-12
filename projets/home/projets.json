@@ -1,6 +1,11 @@
 {
   "projets": [
     {
+      "nom": "Firebase",
+      "dir": "firebase",
+      "description": "Tutoriel pour apprendre à gérer une base de données Firebase!"
+    },
+    {
       "nom": "GitHub",
       "git": "http://fabiennemarquis.github.io/TP1_multimedia"
     },
