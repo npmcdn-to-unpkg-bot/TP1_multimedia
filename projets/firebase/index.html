@@ -5,8 +5,8 @@
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <meta charset="UTF-8">
     <!--<link rel="stylesheet" media="screen" href="../../common/css/common_style.css">-->
+    <script src="polyfill.js"></script>
     <link rel="stylesheet" media="screen" href="style.css">
-    <script src="path/to/polyfill.js"></script>
     <title>Tutoriel Firebase</title>
 </head>
 <body>
@@ -19,11 +19,14 @@
     <div id='messagesDiv'></div>
 </main>
 
-<footer> <input type="color">
+<footer>
+    <input type="color" id="colorUser">
+    <!--<input type='text' id="custom" />-->
     <input type='text' id='nameInput' placeholder='Name'>
     <input type='text' id='messageInput' placeholder='Message'>
 </footer>
 
 <script src="script.js"></script>
+
 </body>
 </html>

@@ -10,11 +10,18 @@
         inputMSG = $('#messageInput');
     getName();
 
+    function spectCouleur(){
+        $("#custom").spectrum({
+            color: "#f9ff6a"
+        });
+    }
+
 
     function getName() {
         if (localStorage.getItem("nom")!=null){
+            $('#colorUser').val("color");
+            $('#messageInput').val("msg");
             $('#nameInput').val(localStorage.getItem("nom"));
-            console.log(localStorage.getItem("nom"));
         }else{
             $('#nameInput').val("Anonymous");
         }
@@ -57,7 +64,7 @@
     };
 
     function enregistrerUsager() {
-        var usager = {'nom': $('#nameInput').val(), 'color': pink, 'msg':$('#messageInput').val()};
+        var usager = {'nom': $('#nameInput').val(), 'color': $('#colorUser').val(), 'msg':$('#messageInput').val()};
 
         localStorage.setItem("usager", JSON.stringify(usager)) ;
     }
