@@ -3,6 +3,8 @@
  */
 (function () {
     "use strict";
+    var btnCompterAdd50 = document.querySelector("#countMsg");
+    var compterMsg;
     var counterMsg,
         myDataRef = new Firebase('https://crackling-torch-8087.firebaseio.com//'),
         inputMSG = $('#messageInput');
@@ -10,8 +12,13 @@
 
 
     function getName() {
-        $('#nameInput').val(localStorage.getItem("nom"));
-        console.log(localStorage.getItem("nom"));
+        if (localStorage.getItem("nom")!=null){
+            $('#nameInput').val(localStorage.getItem("nom"));
+            console.log(localStorage.getItem("nom"));
+        }else{
+            $('#nameInput').val("Anonymous");
+        }
+
     }
 
     myDataRef.on('value', function (snapshot) {
@@ -19,6 +26,9 @@
         snapshot.forEach(function () {
             counterMsg++;
         });
+        if (counterMsg>=100){
+            effacerPremierMessage();
+        }
         if (counterMsg == 0) {
             $('#countMsg').text(counterMsg + ' message');
         } else {
@@ -28,14 +38,13 @@
     });
 
 
-    $('#countMsg').click(function () {
-        console.log("lala ajouter");
-        for (var i = 1; i == 50; i++) {
-            var name = 'Anonymous';
-            var text = i;
-            myDataRef.push({name: name, text: text});
+    btnCompterAdd50.onclick =function () {
+        for (var i = 1; i <= 50; i++) {
+            var nom = 'Anonymous';
+            var texte = i;
+            myDataRef.push({name: nom, text: texte});
         }
-    });
+    };
 
     function clearMSG() {
         myDataRef.remove(function (error) {
@@ -46,6 +55,14 @@
             }
         });
     };
+
+    function enregistrerUsager() {
+        var usager = {'nom': $('#nameInput').val(), 'color': pink, 'msg':$('#messageInput').val()};
+
+        localStorage.setItem("usager", JSON.stringify(usager)) ;
+    }
+
+
     inputMSG.keypress(function (e) {
         if (e.keyCode == 13) {
             var name = $('#nameInput').val();
@@ -53,6 +70,7 @@
             myDataRef.push({name: name, text: text});
             $('#messageInput').val('');
             localStorage.setItem("nom", $('#nameInput').val()) ;
+            enregistrerUsager();
         }
     });
     myDataRef.on('child_removed', function (oldChildSnapshot) {
@@ -63,6 +81,15 @@
         var message = snapshot.val();
         displayChatMessage(message.name, message.text);
     });
+
+    function effacerPremierMessage(){
+        var nbraEffacer=100-counterMsg;
+        for(var i=1; i<=nbraEffacer;i++){
+            console.log("lala enlever");
+           $('#messagesDiv:first-child').remove();
+        }
+
+    }
 
     function displayChatMessage(name, text) {
         $('<div/>').text(text).prepend($('<em/>').text(name + ': ')).appendTo($('#messagesDiv'));

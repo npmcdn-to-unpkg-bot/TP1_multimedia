@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <!--<link rel="stylesheet" media="screen" href="../../common/css/common_style.css">-->
     <link rel="stylesheet" media="screen" href="style.css">
+    <script src="path/to/polyfill.js"></script>
     <title>Tutoriel Firebase</title>
 </head>
 <body>
@@ -14,11 +15,11 @@
     <a id="linkHome" href="../home/index.html">Retour à l'accueil</a>
 </header>
 <main>
-    <div><span title="Cliquer ici pour ajouter 50 messages" id="countMsg"></span></div>
+    <div id="countMsg" onclick=""><span title="Cliquer ici pour ajouter 50 messages" ></span></div>
     <div id='messagesDiv'></div>
 </main>
 
-<footer>
+<footer> <input type="color">
     <input type='text' id='nameInput' placeholder='Name'>
     <input type='text' id='messageInput' placeholder='Message'>
 </footer>
